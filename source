@@ -8911,7 +8911,7 @@ addcmd('age',{},function(args, speaker)
 	local ages = {}
 	for i,v in pairs(players) do
 		local p = Players[v]
-		table.insert(ages, p.Name.."'s age is: "..p.AccountAge)
+		table.insert(ages, p.DisplayName.."'s age is: "..p.AccountAge)
 	end
 	notify('Account Age',table.concat(ages, ',\n'))
 end)
@@ -8921,7 +8921,7 @@ addcmd('chatage',{},function(args, speaker)
 	local ages = {}
 	for i,v in pairs(players) do
 		local p = Players[v]
-		table.insert(ages, p.Name.."'s age is: "..p.AccountAge)
+		table.insert(ages, p.DisplayName.."'s account age: "..p.AccountAge)
 	end
 	local chatString = table.concat(ages, ', ')
 	chatMessage(chatString)
@@ -8935,7 +8935,7 @@ addcmd('joindate',{'jd'},function(args, speaker)
 
 		local secondsOld = p.AccountAge * 24 * 60 * 60
 		local now = os.time()
-		local dateJoined  = p.Name .. " joined: " .. os.date("%m/%d/%y", now - secondsOld)
+		local dateJoined = p.DisplayName .. " joined: " .. os.date("%m/%d/%y", now - secondsOld)
 
 		table.insert(dates, dateJoined)
 	end
@@ -8950,7 +8950,7 @@ addcmd('chatjoindate',{'cjd'},function(args, speaker)
 
 		local secondsOld = p.AccountAge * 24 * 60 * 60
 		local now = os.time()
-		local dateJoined  = p.Name .. " joined: " .. os.date("%m/%d/%y", now - secondsOld)
+		local dateJoined = p.DisplayName .. " joined: " .. os.date("%m/%d/%y", now - secondsOld)
 
 		table.insert(dates, dateJoined)
 	end
